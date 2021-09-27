@@ -13,12 +13,22 @@ import OSLog
 
 class ViewController: NSViewController {
 
+    @IBOutlet weak var tableView: NSTableView!
+
+    let sortDescriptorScheme = NSSortDescriptor(key: "scheme", ascending: true)
+    let sortDescriptorHandler = NSSortDescriptor(key: "handlerString", ascending: true)
+    
     @objc var entries: [Entry] = []
 
     @IBOutlet var arrayController: NSArrayController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tableView.dataSource = self
+
+        tableView.tableColumns[0].sortDescriptorPrototype = sortDescriptorScheme
+        tableView.tableColumns[1].sortDescriptorPrototype = sortDescriptorHandler
 
         var schemes: NSArray?
         var handlers: NSMutableArray?
@@ -31,5 +41,16 @@ class ViewController: NSViewController {
                 arrayController.addObject(Entry(scheme: elem as! String, handler: h[i] as! CFURL))
             }
         }
+    }
+}
+
+extension ViewController: NSTableViewDataSource  {
+    func tableView(_ tableView: NSTableView, sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor]) {
+        guard let sortDescriptor = tableView.sortDescriptors.first else {
+            return
+        }
+
+        arrayController.sortDescriptors = [sortDescriptor]
+        arrayController.rearrangeObjects()
     }
 }
