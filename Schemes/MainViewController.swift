@@ -7,17 +7,28 @@
 
 import Cocoa
 
+@_silgen_name("_LSCopySchemesAndHandlerURLs") func LSCopySchemesAndHandlerURLs(_: UnsafeMutablePointer<NSArray?>, _: UnsafeMutablePointer<NSMutableArray?>) -> OSStatus
+
 class MainViewController: NSViewController {
 
-    @objc var entries: NSMutableArray = [
-        Entry(scheme: "https", handler: URL(string: "file:///Applications/Safari.app")!),
-        Entry(scheme: "mailto", handler: URL(string: "file:///Applications/Mail.app")!),
-        Entry(scheme: "callto", handler: URL(string: "file:///Applications/Starface.app")!),
-        Entry(scheme: "test", handler: URL(string: "file:///Applications/Starface.app")!),
-        Entry(scheme: "Test", handler: URL(string: "file:///Applications/Starface.app")!)
-    ]
+    @IBOutlet var arrayController: NSArrayController!
+    @IBOutlet weak var tableView: NSTableView!
+    @objc var entries: NSMutableArray = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        var s: NSArray?
+        var u: NSMutableArray?
+        if (LSCopySchemesAndHandlerURLs(&s, &u) != 0) {
+            print("ERROR")
+            return
+        }
+        guard let schemes = s, let handlerURLs = u else { return }
+        for (idx, scheme) in schemes.enumerated() {
+            entries.add(Entry(scheme: scheme as! String, handler: handlerURLs[idx] as! URL))
+        }
+
+        arrayController.rearrangeObjects()
     }
 }
