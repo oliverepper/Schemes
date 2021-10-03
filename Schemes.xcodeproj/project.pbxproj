@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A7006299270A1EA3007D13DD /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7006298270A1EA3007D13DD /* Entry.swift */; };
 		A7CCF56A270A021B0087280A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CCF569270A021B0087280A /* AppDelegate.swift */; };
 		A7CCF56C270A021C0087280A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7CCF56B270A021C0087280A /* Assets.xcassets */; };
 		A7CCF56F270A021C0087280A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7CCF56D270A021C0087280A /* MainMenu.xib */; };
@@ -34,6 +35,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A7006298270A1EA3007D13DD /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		A7CCF566270A021B0087280A /* Schemes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Schemes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7CCF569270A021B0087280A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7CCF56B270A021C0087280A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,6 +62,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A7006297270A1E6D007D13DD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A7006298270A1EA3007D13DD /* Entry.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A7CCF55D270A021B0087280A = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +92,7 @@
 				A7CCF58B270A049A0087280A /* Info.plist */,
 				A7CCF583270A037C0087280A /* XPC Services */,
 				A7CCF577270A02440087280A /* Support Files */,
+				A7006297270A1E6D007D13DD /* Model */,
 				A7CCF576270A023D0087280A /* NIB Files */,
 				A7CCF569270A021B0087280A /* AppDelegate.swift */,
 				A7CCF578270A025E0087280A /* MainWindowController.swift */,
@@ -197,6 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7006299270A1EA3007D13DD /* Entry.swift in Sources */,
 				A7CCF57E270A026C0087280A /* MainViewController.swift in Sources */,
 				A7CCF57A270A025E0087280A /* MainWindowController.swift in Sources */,
 				A7CCF56A270A021B0087280A /* AppDelegate.swift in Sources */,
