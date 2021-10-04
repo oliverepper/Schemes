@@ -18,32 +18,14 @@
             <rect key="frame" x="0.0" y="0.0" width="501" height="320"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <searchField wantsLayer="YES" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQ9-De-Zgu">
-                    <rect key="frame" x="13" y="278" width="376" height="22"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="dhL-TG-Ese">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </searchFieldCell>
-                    <connections>
-                        <binding destination="xWv-0P-W3w" name="predicate" keyPath="filterPredicate" id="gnO-JL-aOq">
-                            <dictionary key="options">
-                                <string key="NSDisplayName">predicate</string>
-                                <string key="NSPredicateFormat">(scheme contains $value) or (handler.absoluteString contains[cd] $value)</string>
-                            </dictionary>
-                        </binding>
-                    </connections>
-                </searchField>
-                <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYw-Wm-FXU">
-                    <rect key="frame" x="13" y="43" width="376" height="233"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                <scrollView autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYw-Wm-FXU">
+                    <rect key="frame" x="0.0" y="0.0" width="501" height="298"/>
                     <clipView key="contentView" id="TRz-5b-Dg0">
-                        <rect key="frame" x="1" y="1" width="374" height="231"/>
+                        <rect key="frame" x="1" y="1" width="499" height="296"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="cCx-rc-zAh" viewBased="YES" id="8la-OT-jBn">
-                                <rect key="frame" x="0.0" y="0.0" width="522" height="203"/>
+                                <rect key="frame" x="0.0" y="0.0" width="522" height="268"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <size key="intercellSpacing" width="17" height="0.0"/>
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -90,7 +72,7 @@
                         </subviews>
                     </clipView>
                     <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="wWj-i7-Nlq">
-                        <rect key="frame" x="1" y="216" width="374" height="16"/>
+                        <rect key="frame" x="1" y="281" width="499" height="16"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="K9g-SV-gjY">
@@ -102,29 +84,32 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </tableHeaderView>
                 </scrollView>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R55-sb-dUp">
-                    <rect key="frame" x="390" y="217" width="98" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" title="Unregister" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MKB-uC-Fc5">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                <searchField wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQ9-De-Zgu">
+                    <rect key="frame" x="0.0" y="298" width="501" height="22"/>
+                    <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="dhL-TG-Ese">
                         <font key="font" metaFont="system"/>
-                    </buttonCell>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </searchFieldCell>
                     <connections>
-                        <action selector="unregister:" target="-2" id="tOT-yZ-1hP"/>
+                        <binding destination="xWv-0P-W3w" name="predicate" keyPath="filterPredicate" id="gnO-JL-aOq">
+                            <dictionary key="options">
+                                <string key="NSDisplayName">predicate</string>
+                                <string key="NSPredicateFormat">(scheme contains $value) or (handler.absoluteString contains[cd] $value)</string>
+                            </dictionary>
+                        </binding>
                     </connections>
-                </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cIE-JA-tzG">
-                    <rect key="frame" x="401" y="249" width="76" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" title="Reload" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OMC-yB-rOv">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="reloadData:" target="-2" id="PP1-59-piX"/>
-                    </connections>
-                </button>
+                </searchField>
             </subviews>
+            <constraints>
+                <constraint firstItem="wYw-Wm-FXU" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="0ZN-uw-59N"/>
+                <constraint firstAttribute="trailing" secondItem="wYw-Wm-FXU" secondAttribute="trailing" id="1i4-GF-k9N"/>
+                <constraint firstItem="wYw-Wm-FXU" firstAttribute="top" secondItem="FQ9-De-Zgu" secondAttribute="bottom" id="KHK-e3-s0b"/>
+                <constraint firstItem="FQ9-De-Zgu" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="M2s-Yg-suf"/>
+                <constraint firstItem="FQ9-De-Zgu" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="O8W-u6-cf3"/>
+                <constraint firstAttribute="trailing" secondItem="FQ9-De-Zgu" secondAttribute="trailing" id="W1B-4J-o41"/>
+                <constraint firstAttribute="bottom" secondItem="wYw-Wm-FXU" secondAttribute="bottom" id="msv-ex-Wui"/>
+            </constraints>
             <point key="canvasLocation" x="149.5" y="154"/>
         </customView>
         <arrayController objectClassName="Schemes.Entry" id="xWv-0P-W3w" userLabel="Entries">
