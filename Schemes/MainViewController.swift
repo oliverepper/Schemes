@@ -74,7 +74,7 @@ public final class NSURLValueTransformer: ValueTransformer {
 extension NSURLValueTransformer {
     static let name = NSValueTransformerName(String(describing: NSURLValueTransformer.self))
 
-    public static func regiser() {
+    public static func register() {
         let transformer = NSURLValueTransformer()
         print(name)
         ValueTransformer.setValueTransformer(transformer, forName: name)
