@@ -17,15 +17,44 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="480" height="270"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="775"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1055"/>
             <view key="contentView" id="se5-gp-TjO">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
             </view>
+            <toolbar key="toolbar" implicitIdentifier="B13BDB5D-C7B7-4E86-9E2E-7BC70DD17972" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="gzN-Td-brF">
+                <allowedToolbarItems>
+                    <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="UEC-zr-ahf"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="n05-gE-R0L"/>
+                    <toolbarItem implicitItemIdentifier="5042EC7D-31DA-46F0-B99B-1ADAEBE39B66" label="Unregister" paletteLabel="Unregister" tag="-1" image="trash" catalog="system" bordered="YES" id="5GC-Ps-l2Q">
+                        <size key="minSize" width="27" height="25"/>
+                        <size key="maxSize" width="27" height="25"/>
+                        <connections>
+                            <action selector="unregister:" target="-1" id="XcU-qs-vzM"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="10D283A1-4FC1-4C99-9471-606E3246F2FE" label="Refresh" paletteLabel="Refresh" tag="-1" image="arrow.clockwise" catalog="system" bordered="YES" id="hgU-6g-Sz0">
+                        <size key="minSize" width="26" height="25"/>
+                        <size key="maxSize" width="26" height="25"/>
+                        <connections>
+                            <action selector="reloadData:" target="-1" id="xBk-YH-amp"/>
+                        </connections>
+                    </toolbarItem>
+                </allowedToolbarItems>
+                <defaultToolbarItems>
+                    <toolbarItem reference="n05-gE-R0L"/>
+                    <toolbarItem reference="5GC-Ps-l2Q"/>
+                    <toolbarItem reference="hgU-6g-Sz0"/>
+                </defaultToolbarItems>
+            </toolbar>
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
             <point key="canvasLocation" x="139" y="126"/>
         </window>
     </objects>
+    <resources>
+        <image name="arrow.clockwise" catalog="system" width="14" height="16"/>
+        <image name="trash" catalog="system" width="15" height="17"/>
+    </resources>
 </document>
