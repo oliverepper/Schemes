@@ -17,15 +17,30 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYw-Wm-FXU">
-                    <rect key="frame" x="0.0" y="0.0" width="480" height="267"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                <searchField wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQ9-De-Zgu">
+                    <rect key="frame" x="0.0" y="298" width="480" height="22"/>
+                    <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="dhL-TG-Ese">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </searchFieldCell>
+                    <connections>
+                        <binding destination="xWv-0P-W3w" name="predicate" keyPath="filterPredicate" id="gnO-JL-aOq">
+                            <dictionary key="options">
+                                <string key="NSDisplayName">predicate</string>
+                                <string key="NSPredicateFormat">(scheme contains $value) or (handler.absoluteString contains[cd] $value)</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </searchField>
+                <scrollView autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYw-Wm-FXU">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="298"/>
                     <clipView key="contentView" id="TRz-5b-Dg0">
-                        <rect key="frame" x="1" y="1" width="478" height="265"/>
+                        <rect key="frame" x="1" y="1" width="478" height="296"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="cCx-rc-zAh" viewBased="YES" id="8la-OT-jBn">
-                                <rect key="frame" x="0.0" y="0.0" width="522" height="237"/>
+                                <rect key="frame" x="0.0" y="0.0" width="522" height="268"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <size key="intercellSpacing" width="17" height="0.0"/>
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -67,7 +82,7 @@
                         </subviews>
                     </clipView>
                     <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="wWj-i7-Nlq">
-                        <rect key="frame" x="1" y="250" width="478" height="16"/>
+                        <rect key="frame" x="1" y="281" width="478" height="16"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="K9g-SV-gjY">
@@ -79,24 +94,16 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </tableHeaderView>
                 </scrollView>
-                <searchField wantsLayer="YES" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQ9-De-Zgu">
-                    <rect key="frame" x="20" y="278" width="96" height="22"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="dhL-TG-Ese">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </searchFieldCell>
-                    <connections>
-                        <binding destination="xWv-0P-W3w" name="predicate" keyPath="filterPredicate" id="gnO-JL-aOq">
-                            <dictionary key="options">
-                                <string key="NSDisplayName">predicate</string>
-                                <string key="NSPredicateFormat">(scheme contains $value) or (handler.absoluteString contains[cd] $value)</string>
-                            </dictionary>
-                        </binding>
-                    </connections>
-                </searchField>
             </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="FQ9-De-Zgu" secondAttribute="trailing" id="FOQ-kK-527"/>
+                <constraint firstItem="wYw-Wm-FXU" firstAttribute="top" secondItem="FQ9-De-Zgu" secondAttribute="bottom" id="Fxq-7F-Ohk"/>
+                <constraint firstItem="wYw-Wm-FXU" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="RN0-F9-5QY"/>
+                <constraint firstItem="FQ9-De-Zgu" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="Tm7-bg-EAc"/>
+                <constraint firstAttribute="bottom" secondItem="wYw-Wm-FXU" secondAttribute="bottom" id="VBH-uz-FCV"/>
+                <constraint firstAttribute="trailing" secondItem="wYw-Wm-FXU" secondAttribute="trailing" id="VgZ-KP-7Db"/>
+                <constraint firstItem="FQ9-De-Zgu" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="llk-hW-wAK"/>
+            </constraints>
             <point key="canvasLocation" x="139" y="154"/>
         </customView>
         <arrayController objectClassName="Schemes.Entry" id="xWv-0P-W3w" userLabel="Entries">

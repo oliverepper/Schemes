@@ -13,6 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     lazy var mainWindowController = MainWindowController(windowNibName: .init("MainWindowController"))
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        mainWindowController.window?.title = ProcessInfo.processInfo.processName
         mainWindowController.showWindow(nil)
     }
 
