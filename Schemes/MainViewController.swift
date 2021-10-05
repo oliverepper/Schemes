@@ -8,7 +8,10 @@
 import Cocoa
 import UnregisterSchemeHandler
 
-@_silgen_name("_LSCopySchemesAndHandlerURLs") func LSCopySchemesAndHandlerURLs(_: UnsafeMutablePointer<NSArray?>, _: UnsafeMutablePointer<NSMutableArray?>) -> OSStatus
+// @_silgen_name("_LSCopySchemesAndHandlerURLs") func LSCopySchemesAndHandlerURLs(_: UnsafeMutablePointer<NSArray?>, _: UnsafeMutablePointer<NSMutableArray?>) -> OSStatus
+private let handle = dlopen(nil, RTLD_NOW)
+private let fnLSCopySchemesAndHandlerURLs = dlsym(handle, "_LSCopySchemesAndHandlerURLs")
+typealias fnLSCopySchemesAndHandlerURLsType = @convention(c) (UnsafeMutablePointer<NSArray?>, UnsafeMutablePointer<NSArray?>) -> OSStatus
 
 class MainViewController: NSViewController {
     @IBOutlet var arrayController: NSArrayController!
@@ -24,15 +27,20 @@ class MainViewController: NSViewController {
     }
 
     private func loadData(into array: NSMutableArray) {
-        var s: NSArray?
-        var u: NSMutableArray?
-        if (LSCopySchemesAndHandlerURLs(&s, &u) != 0) {
-            print("ERROR")
-            return
+        let LSCopySchemesAndHandlerURLs = unsafeBitCast(fnLSCopySchemesAndHandlerURLs, to: fnLSCopySchemesAndHandlerURLsType.self)
+
+        var schemes: NSArray!
+        var handlers: NSArray!
+
+        withUnsafeMutablePointer(to: &schemes) { s_ptr in
+            withUnsafeMutablePointer(to: &handlers) { h_ptr in
+                let result = LSCopySchemesAndHandlerURLs(s_ptr, h_ptr)
+                print(result)
+            }
         }
-        guard let schemes = s, let handlerURLs = u else { return }
+
         for (idx, scheme) in schemes.enumerated() {
-            array.add(Entry(scheme: scheme as! String, handler: handlerURLs[idx] as! URL))
+            array.add(Entry(scheme: scheme as! String, handler: handlers[idx] as! URL))
         }
     }
 
