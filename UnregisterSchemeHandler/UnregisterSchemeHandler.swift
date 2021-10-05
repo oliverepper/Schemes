@@ -7,10 +7,14 @@
 
 import Foundation
 
-@_silgen_name("_LSUnregisterURL") func LSUnregisterURL(_: NSURL) -> OSStatus
+//@_silgen_name("_LSUnregisterURL") func LSUnregisterURL(_: NSURL) -> OSStatus
+private let handle = dlopen(nil, RTLD_NOW)
+private let fnUnregister = dlsym(handle, "_LSUnregisterURL")
+typealias fnUnregisterType = @convention(c) (NSURL) -> OSStatus
 
 class UnregisterSchemeHandler: NSObject, UnregisterSchemeHandlerProtocol {
     func unregister(_ url: URL, withReply reply: @escaping (Int32) -> Void) {
+        let LSUnregisterURL = unsafeBitCast(fnUnregister, to: fnUnregisterType.self)
         let result = LSUnregisterURL(url as NSURL)
         reply(result)
     }
