@@ -9,7 +9,6 @@ import Cocoa
 import UnregisterSchemeHandler
 
 // @_silgen_name("_LSCopySchemesAndHandlerURLs") func LSCopySchemesAndHandlerURLs(_: UnsafeMutablePointer<NSArray?>, _: UnsafeMutablePointer<NSMutableArray?>) -> OSStatus
-
 private let handle = dlopen(nil, RTLD_NOW)
 private let fnLSCopySchemesAndHandlerURLs = dlsym(handle, "_LSCopySchemesAndHandlerURLs")
 typealias fnLSCopySchemesAndHandlerURLsType = @convention(c) (UnsafeMutablePointer<NSArray?>, UnsafeMutablePointer<NSArray?>) -> OSStatus
