@@ -7,8 +7,8 @@
 
 import Cocoa
 import UnregisterSchemeHandler
+import OSLog
 
-// @_silgen_name("_LSCopySchemesAndHandlerURLs") func LSCopySchemesAndHandlerURLs(_: UnsafeMutablePointer<NSArray?>, _: UnsafeMutablePointer<NSMutableArray?>) -> OSStatus
 private let handle = dlopen(nil, RTLD_NOW)
 private let fnLSCopySchemesAndHandlerURLs = dlsym(handle, "_LSCopySchemesAndHandlerURLs")
 typealias fnLSCopySchemesAndHandlerURLsType = @convention(c) (UnsafeMutablePointer<NSArray?>, UnsafeMutablePointer<NSArray?>) -> OSStatus
@@ -34,8 +34,9 @@ class MainViewController: NSViewController {
 
         withUnsafeMutablePointer(to: &schemes) { s_ptr in
             withUnsafeMutablePointer(to: &handlers) { h_ptr in
-                let result = LSCopySchemesAndHandlerURLs(s_ptr, h_ptr)
-                print(result)
+                if (LSCopySchemesAndHandlerURLs(s_ptr, h_ptr) != 0) {
+                    os_log("Cannot list schemes and handlers", type: .error)
+                }
             }
         }
 
@@ -53,7 +54,7 @@ class MainViewController: NSViewController {
     private func unregister() {
         arrayController.selectionIndexes.forEach { idx in
             let entry = (arrayController.arrangedObjects as! NSArray)[idx] as! Entry
-            print("Going to unregister \(entry.handler.path)")
+            os_log("Going to unregister %{public}@", type: .info, entry.handler.path)
             UnregisterClient.unregiser(entry.handler) { [weak self] result in
                 DispatchQueue.main.async {
                     self?.reloadData()
@@ -95,8 +96,8 @@ extension NSURLValueTransformer {
     static let name = NSValueTransformerName(String(describing: NSURLValueTransformer.self))
 
     public static func register() {
+        os_log("Going to register ValueTransformer %{public}@", type: .debug, name as CVarArg)
         let transformer = NSURLValueTransformer()
-        print(name)
         ValueTransformer.setValueTransformer(transformer, forName: name)
     }
 }
@@ -108,7 +109,7 @@ final class UnregisterClient {
         connection.resume()
 
         let service = connection.remoteObjectProxyWithErrorHandler { error in
-            print("Error: \(error)")
+            os_log("Error setting up XPC Proxy object: %{public}@")
         } as? UnregisterSchemeHandlerProtocol
 
         service?.unregister(url, withReply: reply)
