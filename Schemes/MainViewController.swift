@@ -16,6 +16,8 @@ typealias fnLSCopySchemesAndHandlerURLsType = @convention(c) (UnsafeMutablePoint
 class MainViewController: NSViewController {
     @IBOutlet var arrayController: NSArrayController!
 
+    private var token: NSObjectProtocol?
+
     @objc lazy var entries: NSMutableArray = {
         let entries: NSMutableArray = []
         loadData(into: entries)
@@ -24,6 +26,16 @@ class MainViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        token = NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.willLaunchApplicationNotification, object: nil, queue: nil) { notification in
+            self.reloadData()
+        }
+    }
+
+    override func viewWillDisappear() {
+        if let token = token {
+            NSWorkspace.shared.notificationCenter.removeObserver(token)
+        }
     }
 
     private func loadData(into array: NSMutableArray) {
@@ -46,6 +58,7 @@ class MainViewController: NSViewController {
     }
 
     private func reloadData() {
+        os_log("Going to reload data", type: .debug)
         entries.removeAllObjects()
         loadData(into: entries)
         arrayController.rearrangeObjects()
