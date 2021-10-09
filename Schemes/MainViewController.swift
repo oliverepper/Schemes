@@ -27,14 +27,14 @@ class MainViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        token = NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.willLaunchApplicationNotification, object: nil, queue: nil) { notification in
+        token = DistributedNotificationCenter.default().addObserver(forName: .init("com.apple.LaunchServices.applicationRegistered"), object: nil, queue: nil, using: { _ in
             self.reloadData()
-        }
+        })
     }
 
     override func viewWillDisappear() {
         if let token = token {
-            NSWorkspace.shared.notificationCenter.removeObserver(token)
+            DistributedNotificationCenter.default().removeObserver(token)
         }
     }
 
