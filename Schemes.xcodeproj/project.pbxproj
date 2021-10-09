@@ -13,6 +13,7 @@
 		A70F1268270B76ED00559406 /* UnregisterSchemeHandler.xpc in CopyFiles */ = {isa = PBXBuildFile; fileRef = A70F125D270B76ED00559406 /* UnregisterSchemeHandler.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A70F126C270B780800559406 /* UnregisterSchemeHandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F125F270B76ED00559406 /* UnregisterSchemeHandlerProtocol.swift */; };
 		A70F126D270B7A1600559406 /* UnregisterSchemeHandlerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F1260270B76ED00559406 /* UnregisterSchemeHandlerDelegate.swift */; };
+		A78D7CC02711991700CE2313 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A78D7CBF2711991700CE2313 /* Credits.rtf */; };
 		A7CCF56A270A021B0087280A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CCF569270A021B0087280A /* AppDelegate.swift */; };
 		A7CCF56C270A021C0087280A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7CCF56B270A021C0087280A /* Assets.xcassets */; };
 		A7CCF56F270A021C0087280A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7CCF56D270A021C0087280A /* MainMenu.xib */; };
@@ -58,6 +59,7 @@
 		A70F1261270B76ED00559406 /* UnregisterSchemeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnregisterSchemeHandler.swift; sourceTree = "<group>"; };
 		A70F1263270B76ED00559406 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		A70F1265270B76ED00559406 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A78D7CBF2711991700CE2313 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		A7CCF566270A021B0087280A /* Schemes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Schemes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7CCF569270A021B0087280A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7CCF56B270A021C0087280A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				A7CCF58B270A049A0087280A /* Info.plist */,
+				A78D7CBF2711991700CE2313 /* Credits.rtf */,
 				A7CCF583270A037C0087280A /* XPC Services */,
 				A7CCF577270A02440087280A /* Support Files */,
 				A7006297270A1E6D007D13DD /* Model */,
@@ -266,6 +269,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A78D7CC02711991700CE2313 /* Credits.rtf in Resources */,
 				A7CCF56C270A021C0087280A /* Assets.xcassets in Resources */,
 				A7CCF57B270A025E0087280A /* MainWindowController.xib in Resources */,
 				A7CCF56F270A021C0087280A /* MainMenu.xib in Resources */,
@@ -490,20 +494,21 @@
 				CODE_SIGN_ENTITLEMENTS = Schemes/Schemes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = AWJ83G3EPY;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Schemes/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Oliver Epper";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.3.3;
+				MARKETING_VERSION = 0.3.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.oliver-epper.Schemes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -520,20 +525,21 @@
 				CODE_SIGN_ENTITLEMENTS = Schemes/Schemes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = AWJ83G3EPY;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Schemes/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Oliver Epper";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.3.3;
+				MARKETING_VERSION = 0.3.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.oliver-epper.Schemes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
